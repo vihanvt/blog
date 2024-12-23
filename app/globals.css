@@ -1,21 +1,40 @@
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Light mode colors */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 0 0% 100%; /* Light background */
+  --foreground: 222.2 47.4% 11.2%; /* Dark text for light mode */
+  --primary: 222.2 47.4% 11.2%; /* Primary button color */
+  --primary-foreground: 210 40% 98%; /* Text color for primary */
+  --muted: 210 40% 96.1%; /* Muted background color */
+  --muted-foreground: 215.4 16.3% 46.9%; /* Muted text */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark mode colors */
+html.dark {
+  --background: 0 0% 10%; /* Dark background */
+  --foreground: 210 40% 98%; /* Light text for dark mode */
+  --primary: 222.2 47.4% 11.2%; /* Primary button color */
+  --primary-foreground: 210 40% 98%; /* Text color for primary */
+  --muted: 210 40% 80%; /* Muted background color */
+  --muted-foreground: 215.4 16.3% 66%; /* Muted text */
 }
 
+/* Apply to body and components for color transitions */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+button:hover {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
 }
